@@ -8,8 +8,9 @@
           <div class="col-md-12">
               <h1 class="text-center">Modifica il tag "{{$tag->name}}" </h1>
 
-              <form method="POST" action="{{ route('admin.tags.store') }}">
+              <form method="POST" action="{{ route('admin.tags.update', $tag->id) }}">
                 @csrf
+                @method('PUT')
                 <div class="form-group">
                   <label for="name">Nome del Tag</label>
                   <input type="text" class="form-control" id="name" name="name" value="{{old('name', $tag->name)}}">
